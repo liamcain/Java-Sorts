@@ -1,9 +1,11 @@
 public class QuickSort implements Sorts{
 	
-	private int[] arr;
+	private int[] myArr;
 	private int len;
 	
-	public QuickSort(){
+	public QuickSort(int[] unsortedArr){
+		myArr = unsortedArr;
+		len = myArr.length;
 	}
 	
 	public void display(){
@@ -12,10 +14,19 @@ public class QuickSort implements Sorts{
 			else 				System.out.println(myArr[i]);
 	}
 	
-	public void sort(int[]a){
-		len = a.length;
+	public void sort(int[] a, boolean save){
+		int arr[];
+				
+		if(save)
+            arr = myArr;
+        else {
+            arr = a;
+        }
+        
 		qsort(arr, 0, len-1);
-		myArr = arr;
+		if (save) {
+			myArr = arr;
+		}
 	}
 	
 	private void swap(int[]arr, int i, int j){
