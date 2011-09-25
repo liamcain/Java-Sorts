@@ -2,37 +2,43 @@ import java.util.Scanner;
 
 public class Driver {
 	
-	public static void manageSort(int[] a, int num, Sorts sorter, String name){
-		final int repeats = 1000;
+	public static void displayArr(int[] a){
+		int len = a.length;
+		for(int i = 0; i < len; i++){
+			if(i != len-1) 
+				System.out.print(a[i] + ", ");
+			else 
+				System.out.print(a[i]);
+		}
+		System.out.println();
+	}
+	
+	public static void manageSort(Sorts sorter, String name){
+		final int REPEATS = 1000;
+		final int ARRSIZE = 10;
+		int[] randomArr = arrGen(ARRSIZE);
+		int[] copy = null;
 		Stopwatch stopwatch = new Stopwatch();
 		
 		stopwatch.start();
 		System.out.println("\n===============" + name + "================");
 		
-		if (num <= 10)//If the arr size is too big, please don't print it all
-			sorter.display();
+		if (ARRSIZE <= 10)//If the arr size is too big, please don't print it all
+			displayArr(randomArr);
 		
-		for (int i = 0; i < repeats - 1; i++) //The last sort will save the sort
-			sorter.sort(a, (repeats == 1));//if true, saves sorted arr to private instance variable
-		
-		sorter.sort(a, true); //one last sort that saves the sort
+		for (int i = 0; i < REPEATS; i++){
+			copy = copyArr(randomArr);
+			sorter.sort(copy);
+		}
 		
 		stopwatch.stop();
 			
-		if (num <= 10)//If the arr size is too big, please don't print it all
-			sorter.display();
+		if (ARRSIZE <= 10)//If the arr size is too big, please don't print it all
+			displayArr(copy);
 			
 		double time = stopwatch.getElapsedTime();
-		System.out.println(name + " finished " + repeats + " repetitions in " + time + " milliseconds");
+		System.out.println(name + " finished " + REPEATS + " repetitions in " + time + " milliseconds");
 		
-	}
-	
-	public static boolean askQ(String question){
-		Scanner reader = new Scanner(System.in);
-		
-		System.out.println(question);
-		
-		return (reader.nextLine().equals("yes")) ?true :false;
 	}
 	
 	public static int[] arrGen(int howBig){
@@ -56,16 +62,15 @@ public class Driver {
 	}
 	
 	public static void main(String[] args) {
-		final int num = 1000;
-		int[] randomArr = arrGen(num);
-		QuickSort quicksorter = new QuickSort(copyArr(randomArr));		
-		SelectionSort selectionsorter = new SelectionSort(copyArr(randomArr));
+		
+		QuickSort quicksorter = new QuickSort();		
+		SelectionSort selectionsorter = new SelectionSort();
 						
 		/*==== QuickSort ========*/
-		manageSort(randomArr, num, quicksorter, "QuickSort");
+		manageSort(quicksorter, "QuickSort");
 		
 		/*==== Selection Sort =====*/
-		manageSort(randomArr, num, selectionsorter, "Selection Sort");
+		manageSort(selectionsorter, "Selection Sort");
 		
 	}
 }

@@ -3,33 +3,17 @@ public class QuickSort implements Sorts{
 	private int[] myArr;
 	private int len;
 	
-	public QuickSort(int[] unsortedArr){
-		myArr = unsortedArr;
-		len = myArr.length;
+	public QuickSort(){
 	}
 	
-	public void display(){
-		for(int i = 0; i < len; i++)
-			if(i != len - 1) 	System.out.print(myArr[i] + ", ");
-			else 				System.out.println(myArr[i]);
-	}
 	
-	public void sort(int[] a, boolean save){
-		int arr[];
-				
-		if(save)
-            arr = myArr;
-        else {
-            arr = a;
-        }
-        
+	public void sort(int[] arr){
+		int len = arr.length;
 		qsort(arr, 0, len-1);
-		if (save) {
-			myArr = arr;
-		}
+		myArr = arr;
 	}
 	
-	private void swap(int[]arr, int i, int j){
+	private void swap(int[] arr, int i, int j){
 		int temp = arr[i];
 		arr[i] = arr[j];
 		arr[j] = temp;
@@ -62,4 +46,5 @@ public class QuickSort implements Sorts{
 		qsort(arr, beginning, j);
 		qsort(arr, i, end);
 	}
+	
 }
