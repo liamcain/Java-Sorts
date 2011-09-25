@@ -15,7 +15,7 @@ public class Driver {
 	
 	public static void manageSort(Sorts sorter, String name){
 		final int REPEATS = 1000;
-		final int ARRSIZE = 10;
+		final int ARRSIZE = 1000;
 		int[] randomArr = arrGen(ARRSIZE);
 		int[] copy = null;
 		Stopwatch stopwatch = new Stopwatch();
@@ -65,12 +65,17 @@ public class Driver {
 		
 		QuickSort quicksorter = new QuickSort();		
 		SelectionSort selectionsorter = new SelectionSort();
+		Bubble bubblesorter = new Bubble();
+
 						
 		/*==== QuickSort ========*/
 		manageSort(quicksorter, "QuickSort");
 		
 		/*==== Selection Sort =====*/
 		manageSort(selectionsorter, "Selection Sort");
-		
+
+		/*==== Bubble Sort =====*/
+		manageSort(bubblesorter, "Bubble Sort");
+
 	}
 }
