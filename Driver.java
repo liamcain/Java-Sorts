@@ -65,7 +65,7 @@ public class Driver {
 		
 		QuickSort quicksorter = new QuickSort();		
 		SelectionSort selectionsorter = new SelectionSort();
-		Bubble bubblesorter = new Bubble();
+		BubbleSort bubblesorter = new BubbleSort();
 
 						
 		/*==== QuickSort ========*/

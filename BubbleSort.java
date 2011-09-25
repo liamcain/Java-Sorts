@@ -1,5 +1,5 @@
 
-public class BubbleSort {
+public class BubbleSort implements Sorts{
 
     int[] sortedArr;
     
@@ -7,7 +7,7 @@ public class BubbleSort {
 
     }
     
-    private void swap(int i, int j){
+    private void swap(int[]arr, int i, int j){
         int temp = arr[i];
         arr[i] = arr[j];
         arr[j] = temp;
@@ -21,7 +21,7 @@ public class BubbleSort {
             swapped = false;
             for(int i = 0; i < len - 1; i++){ // -1 to accommodate for 2 indices
                 if(arr[i] > arr[i+1]){
-                    swap(i, i+1);
+                    swap(arr, i, i+1);
                     swapped = true;
                 }
             }
