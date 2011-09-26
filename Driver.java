@@ -21,7 +21,7 @@ public class Driver {
 		Stopwatch stopwatch = new Stopwatch();
 		
 		stopwatch.start();
-		System.out.println("\n===============" + name + "================");
+		System.out.println("\n==================" + name + "===================");
 		
 		if (ARRSIZE <= 10)//If the arr size is too big, please don't print it all
 			displayArr(randomArr);
