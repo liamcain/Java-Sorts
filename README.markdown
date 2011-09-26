@@ -1,4 +1,4 @@
-##Sorts
+#Sorts
 
 This is a Java Project that compares sorting times using a stopwatch class
 
